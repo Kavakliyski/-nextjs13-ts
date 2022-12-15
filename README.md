@@ -1,4 +1,2 @@
-# -nextjs13-ts
-
-nextjs13 -- type script
-Tailwind CSS
+# NextJS13 --Type Script
+# Tailwind CSS
