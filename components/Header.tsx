@@ -1,5 +1,9 @@
 
+// react
 import Image from 'next/image'
+
+// icons
+import { BellIcon, SearchIcon } from '@heroicons/react/solid';
 
 
 function Header() {
@@ -21,13 +25,14 @@ function Header() {
                     <li className="headerLink">TV Shows</li>
                     <li className="headerLink">Movies</li>
                     <li className="headerLink">New & Popular</li>
-                    <li className="headerLink">My List</li>
+                    <li className="headerLink">My List</li> 
                 </ul>
             </div>
 
-            <h1>h1</h1>
-
             <div>
+                <SearchIcon className="hoddem h-6 w-6 sm:inline"/>
+                <p className="hidden lg:inline">Kids</p>
+                <BellIcon className="h-6 w-6"/>
             </div>
         </header>
     )
