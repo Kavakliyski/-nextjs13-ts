@@ -21,13 +21,18 @@ export default function Banner({ netflixOriginals }: Props) {
         )
     }, [netflixOriginals])
 
+
     return (
         <div>
-            <div className="absolute top-0 left-0">
+            <div className="absolute top-0 left-0 h-[95vh] w-[100vw]">
                 <Image
-                    src={`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`}
+                    // src=`${baseUrl}${movie?.backdrop_path || movie?.poster_path}`
+                    src='/fightclub.jpg'
                     alt=""
-                    layout="fill"
+                    fill
+                    style={{
+                        objectFit: 'cover',
+                    }}
                 />
             </div>
         </div>
