@@ -38,7 +38,27 @@ function AuthProvider({ children }: AuthProviderProps) {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState<User | null>(null);
     const [error, setError] = useState(null);
+    const [initialLoading, setInitialLoading] = useState(true);
     const router = useRouter();
+
+    useEffect(() =>
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // Logged in...
+                setUser(user)
+                setLoading(false)
+            } else {
+                // Not logged in...
+                setUser(null)
+                setLoading(true)
+                router.push('/login')
+            }
+
+            setInitialLoading(false)
+        }),
+        [auth]
+    )
+
 
     const signUp = async (email: string, password: string) => {
         setLoading(true)
@@ -80,7 +100,7 @@ function AuthProvider({ children }: AuthProviderProps) {
 
     return (
         <AuthContext.Provider value={memoedValue}>
-            {children}
+            {!initialLoading && children}
         </AuthContext.Provider>
     )
 }
@@ -90,4 +110,4 @@ function useAuth() {
 }
 
 
-export default {useAuth, AuthProvider};
+export default { useAuth, AuthProvider };
